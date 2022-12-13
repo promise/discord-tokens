@@ -1,0 +1,33 @@
+name: Clean schedule
+
+on:
+  push:
+    branches:
+      - tokens
+  workflow_dispatch:
+
+jobs:
+  clean:
+    name: Clean
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@7dd9e2a3dc350cf687eb1b2a4fadfee8c8e49675 # v3
+
+    - name: Create empty directory
+      run: mkdir tokens
+
+    - name: Add README
+      run: cp ./README.md ./tokens
+
+    - name: Commit and push
+      uses: s0/git-publish-subdir-action@develop
+      env:
+        BRANCH: tokens
+        FOLDER: tokens
+        SQUASH_HISTORY: true
+        SKIP_EMPTY_COMMITS: false
+        MESSAGE: "profile automation 🎉"
+        COMMIT_NAME: "github-actions[bot]"
+        COMMIT_EMAIL: "github-actions[bot]@users.noreply.github.com"
