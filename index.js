@@ -1,5 +1,5 @@
-import { Octokit } from "@octokit/rest";
-import { randomBytes } from "crypto";
+const { Octokit } = require("@octokit/rest");
+const { randomBytes } = require("crypto");
 
 /**
  * @typedef {Object} TokenResetOptions
@@ -10,9 +10,9 @@ import { randomBytes } from "crypto";
  * @property {string} committerEmail The email of the committer
  */
 
-export const tokenRegex = /[a-zA-Z0-9_-]{23,28}\.[a-zA-Z0-9_-]{6,7}\.[a-zA-Z0-9_-]{27,38}/gmu;
+const tokenRegex = /[a-zA-Z0-9_-]{23,28}\.[a-zA-Z0-9_-]{6,7}\.[a-zA-Z0-9_-]{27,38}/gmu;
 
-export default class TokenReset {
+class TokenReset {
   /** @param {TokenResetOptions} options */
   constructor(options) {
     this.options = options;
@@ -108,6 +108,8 @@ export default class TokenReset {
     });
   }
 }
+
+module.exports = TokenReset;
 
 function safelyConvertBase64ToText(base64) {
   try {
