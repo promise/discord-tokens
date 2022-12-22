@@ -1,3 +1,10 @@
 {
-  "extends": ["github>promise/renovate-config:fully-automated-repository"]
+  "extends": ["github>promise/renovate-config:fully-automated-repository"],
+  "packageRules": [
+    {
+      "description": "Disable discord.js upgrades since it's just used for typings",
+      "packageNames": ["discord.js"],
+      "enabled": false
+    }
+  ]
 }

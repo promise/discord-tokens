@@ -1,0 +1,26 @@
+{
+  "name": "discord-token-reset",
+  "author": "Glenn <glenn@not-tech.support> (https://not-tech.support)",
+  "description": "A package to simplify resetting discord tokens",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "devDependencies": {
+    "@tsconfig/node18-strictest": "1.0.0",
+    "@types/node": "18.11.17",
+    "discord.js": "^14",
+    "eslint": "8.30.0",
+    "eslint-config-promise": "github:promise/eslint-config",
+    "typescript": "4.9.4"
+  },
+  "peerDependencies": {
+    "@octokit/rest": "19.0.5",
+    "discord.js": "^14"
+  },
+  "eslintConfig": {
+    "extends": "promise"
+  }
+}
