@@ -84,7 +84,7 @@ class TokenReset {
    */
   async send(path, content, message) {
     await this.octokit.repos.createOrUpdateFileContents({
-      content,
+      content: Buffer.from(content).toString("base64"),
       message,
       path,
       owner: this.options.repository.split("/")[0],
