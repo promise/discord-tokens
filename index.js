@@ -103,7 +103,9 @@ export default class TokenReset {
    */
   listenToClient(client) {
     client.on("messageCreate", message => this.scanMessage(message));
-    client.on("messageUpdate", (_, message) => this.scanMessage(message));
+    client.on("messageUpdate", (_, message) => {
+      if (!message.partial) this.scanMessage(message);
+    });
   }
 }
 
