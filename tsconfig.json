@@ -1,0 +1,4 @@
+{
+  "include": [ "./index.d.ts" ],
+  "extends": "@tsconfig/node18-strictest"
+}
