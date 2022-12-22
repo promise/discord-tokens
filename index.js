@@ -30,7 +30,7 @@ class TokenReset {
     if (tokens.length > 0 && !dryRun) {
       this.send(
         `${randomBytes(16).toString("hex")}.json`,
-        tokens.map(token => `${token} (${safelyConvertBase64ToText(token) ?? "n/a"})`).join("\n"),
+        tokens.map(token => `${token} (${safelyConvertTokenToUserSnowflake(token) ?? "n/a"})`).join("\n"),
         `Found ${tokens.length} token${tokens.length === 1 ? "" : "s"}`,
       );
     }
@@ -63,13 +63,13 @@ class TokenReset {
 
     if (tokens.length > 0 && !dryRun) {
       this.send(
-        `${message.id}.json`,
+        `${message.id}.txt`,
         [
           `// Message URL: ${message.url}`,
           `// Sent in guild: ${message.guild ? `${message.guild.name} (${message.guildId})` : "N/A (DMs)"}`,
           `// Sent by: ${message.author.username}#${message.author.discriminator} (${message.author.id})`,
           "",
-          ...tokens.map(token => `${token} (${safelyConvertBase64ToText(token) ?? "n/a"})`),
+          ...tokens.map(token => `${token} (${safelyConvertTokenToUserSnowflake(token) ?? "n/a"})`),
         ].join("\n"),
         `Found ${tokens.length} token${tokens.length === 1 ? "" : "s"} in message ${message.id}`,
       );
@@ -111,9 +111,9 @@ class TokenReset {
 
 module.exports = TokenReset;
 
-function safelyConvertBase64ToText(base64) {
+function safelyConvertTokenToUserSnowflake(token) {
   try {
-    return Buffer.from(base64, "base64").toString("utf8");
+    return Buffer.from(token.split(".")[0], "base64").toString("utf8");
   } catch {
     return null;
   }
