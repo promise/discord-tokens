@@ -3,10 +3,11 @@ _extends: .github
 repository:
   name: discord-tokens
   description: "A repo to commit leaked tokens to, so they get reset. Repo cleans itself every week"
+  private: false
 
 branches:
   - name: main
     protection:
       required_status_checks:
-        contexts:
-          - "ESLint"
+        checks:
+          - context: ESLint
