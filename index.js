@@ -1,5 +1,5 @@
-const { Octokit } = require("@octokit/rest");
 const { randomBytes } = require("crypto");
+const { Octokit } = require("@octokit/rest");
 
 /**
  * @typedef {Object} TokenResetOptions
