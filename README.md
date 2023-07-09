@@ -6,4 +6,4 @@ All tokens stored here is only stored for the reset to happen, and the repositor
 
 ## Contact
 
-Contact [me@promise.solutions](mailto:me@promise.solutions) or through Discord at `Promise#0001` for any questions or concerns.
+Contact [me@promise.solutions](mailto:me@promise.solutions) or through Discord via `@Promise` for any questions or concerns.
