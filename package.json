@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "@tsconfig/node18-strictest": "1.0.0",
-    "@types/node": "20.4.5",
+    "@types/node": "20.4.6",
     "discord.js": "^14",
     "eslint": "8.46.0",
     "eslint-config-promise": "github:promise/eslint-config",
