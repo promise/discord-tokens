@@ -17,7 +17,7 @@
     "typescript": "5.4.3"
   },
   "peerDependencies": {
-    "@octokit/rest": "20.0.2",
+    "@octokit/rest": "20.1.0",
     "discord.js": "^14"
   },
   "eslintConfig": {
